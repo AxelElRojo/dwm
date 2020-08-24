@@ -70,6 +70,8 @@ static const char* scrsht[] = { "imlib2_grab", "/home/axel/s.png", NULL};
 static const char* xfe[] = {"xfe",NULL};
 static const char* apagar[] = {"shutdown", "-h", "now", NULL};
 static const char* htop[] = {"alacritty", "-e", "htop", NULL};
+static const char* ffox[] = {"firefox", NULL};
+static const char* pfox[] = {"firefox", "--private-window", NULL};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,       spawn,          {.v = dmenucmd } },
@@ -78,6 +80,8 @@ static Key keys[] = {
         { MODKEY,                       XK_x,       spawn,          {.v = xfe} },
         { MODKEY|ShiftMask,             XK_s,       spawn,          {.v = apagar} },
         { MODKEY,                       XK_a,       spawn,          {.v = htop} },
+	{ MODKEY,						 XK_f,		spawn,				{.v = ffox} },
+	{ MODKEY|ShiftMask,		 XK_f,		spawn,				{.v = pfox} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -89,7 +93,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ControlMask|ShiftMask,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
